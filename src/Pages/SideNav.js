@@ -17,82 +17,97 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import {BsPersonFill} from 'react-icons/bs';
 import {BiHomeHeart,BiBookHeart} from 'react-icons/bi';
-import {FaSistrix} from 'react-icons/fa';
+import {FaSistrix,FaHeart} from 'react-icons/fa';
 import {ImBooks} from 'react-icons/im';
 import {GiWhiteBook} from 'react-icons/gi';
 import ReactDOM from 'react-dom';
-import img1 from '../image/e563d97183e6468f0f32f4a01c424e68.png';
+import { Component } from 'react'
 import '../Books.module.css';
 import { NavLink } from 'react-router-dom';
+import Avatar from '@mui/material/Avatar';
+import img2 from '../image/e563d97183e6468f0f32f4a01c424e68.png'
+import img1 from "../image/img_569204.png";
+
 const drawerWidth = 260;
 
-function ResponsiveDrawer(props) {
-  const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+function Drawer1 (){
+  return(
+  <div className='drawer' style={{backgroundColor:'#219150',color:'#fff',fontSize:'1.2rem',fontFamily:'fantasy',padding:'0.2rem',overflowX:'hidden',overflowY:'scroll'}}>
+    
+    
+    <div className='ins-drawer' style={{borderRadius:'2rem', position:'relative',left:'7px',marginRight:'20px',height:'140px',width:'240px',background:'linear-gradient(245.1deg,rgba(240,28,111,.5) 24.11%,rgba(240,28,111,0) 73.06%),radial-gradient(87.22% 46.99% at 120% -3.77%,#219150 0,rgba(240,28,111,0) 100%),#703056',marginTop:'40px',marginBottom:'20px'}}>
 
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
-
-  const drawer = (
-    <div className='drawer' style={{backgroundColor:'#219150',color:'#fff',fontSize:'1.2rem',fontFamily:'fantasy',padding:'0.2rem',overflowX:'hidden',overflowY:'scroll'}}>
+    <h1 style={{fontSize: '1.9rem',fontWeight: 'bolder',color:'#fff',textAlign:'center',position:'absolute',bottom:'25px',marginLeft:'30px'}} >
+          Read without limits
+          <br/>
+          <i style={{fontSize:'3rem'}}><ImBooks/></i>
+        </h1>
       
-      
-      <div className='ins-drawer' style={{borderRadius:'2rem', position:'relative',left:'7px',marginRight:'20px',height:'140px',width:'240px',background:'linear-gradient(245.1deg,rgba(240,28,111,.5) 24.11%,rgba(240,28,111,0) 73.06%),radial-gradient(87.22% 46.99% at 120% -3.77%,#219150 0,rgba(240,28,111,0) 100%),#703056',marginTop:'40px',marginBottom:'20px'}}>
-
-      <h1 style={{fontSize: '1.9rem',fontWeight: 'bolder',color:'#fff',textAlign:'center',position:'absolute',bottom:'25px',marginLeft:'30px'}} >
-            Read without limits
-            <br/>
-            <i style={{fontSize:'3rem'}}><ImBooks/></i>
-          </h1>
-        
-      </div>
-      <div className='menu' style={{Left:'9px',color:'#fff'}}> 
-      <NavLink exact to={'/home'} activeStyle={{backgroundColor:'#703056'}}  className='btn-menu'><i style={{fontSize:'2.5rem',marginRight:'5px'}} ><BiHomeHeart/></i>Home</NavLink>
-      <NavLink exact to={'/'} activeStyle={{backgroundColor:'#703056'}} className='btn-menu'><i style={{fontSize:'2.5rem',marginRight:'5px'}}><FaSistrix/></i>Search</NavLink>
-      <NavLink exact to={'/'} activeStyle={{backgroundColor:'#703056'}} className='btn-menu'><i style={{fontSize:'2.5rem',marginRight:'5px'}}><BsPersonFill/></i>My books</NavLink>
-      <p className='btn-menu1'><i style={{fontSize:'2.5rem',marginRight:'5px'}}><ImBooks/></i>Books</p>
-      
-      <List>
-        <a href='#'className='btn-menu2'>romans & fictions</a>
-        <a href='#' className='btn-menu2'>Leisure & practice</a>
-        <a href='#' className='btn-menu2'>Romance</a>
-        <a href='#' className='btn-menu2'>Youth</a>
-        <a href='#' className='btn-menu2'>Young Adult</a>
-        <a href='#' className='btn-menu2'>knowledge and cultures</a>
-        <a href='#' className='btn-menu2'>classical literature</a>
-        <a href='#' className='btn-menu2'>training</a>
-        <a href='#' className='btn-menu2'>imaginary literature</a>
-      </List>
-      <p className='btn-menu1'><i style={{fontSize:'2.5rem',marginRight:'5px'}}><GiWhiteBook/></i>Blogs</p>
-      
-      <List>
-        <a href='#'className='btn-menu2'>Personal blogs</a>
-        <a href='#' className='btn-menu2'>Business/corporate blogs</a>
-        <a href='#' className='btn-menu2'>professional blogs</a>
-        <a href='#' className='btn-menu2'>Fashion blogs</a>
-        <a href='#' className='btn-menu2'>Lifestyle blogs</a>
-        <a href='#' className='btn-menu2'>Travel blogs</a>
-        <a href='#' className='btn-menu2'>Food blogs</a>
-        <a href='#' className='btn-menu2'>Affiliate/review blogs</a>
-        <a href='#' className='btn-menu2'>Multimedia blogs</a>
-        <a href='#' className='btn-menu2'>News blogs</a>
-
-      </List>
-      <hr size="30" />
-      <img src={img1} style={{width:'150px',marginLeft:'20px'}}></img>
-      </div>
-      
-      
-      
-     
-      
-        
     </div>
-  );
+    <div className='menu' style={{Left:'9px',color:'#fff'}}> 
+    <NavLink exact to={'/home'} activeStyle={{backgroundColor:'#703056'}}  className='btn-menu'><i style={{fontSize:'2.5rem',marginRight:'5px'}} ><BiHomeHeart/></i>Home</NavLink>
+    <NavLink exact to={'/search'} activeStyle={{backgroundColor:'#703056'}} className='btn-menu'><i style={{fontSize:'2.5rem',marginRight:'5px'}}><FaSistrix/></i>Search</NavLink>
+    <NavLink exact to={'/foryou'} activeStyle={{backgroundColor:'#703056'}} className='btn-menu'><i style={{fontSize:'2.5rem',marginRight:'5px'}}><FaHeart/></i>For you</NavLink>
+    <p className='btn-menu1'><i style={{fontSize:'2.5rem',marginRight:'5px'}}><ImBooks/></i>Books</p>
+    
+    <List>
+      <a href='#fiction'className='btn-menu2'> 👽 Fiction</a>
+      <a href='#poetry' className='btn-menu2'> 🌈 Poetry</a>
+      <a href='#fantasy' className='btn-menu2'> 🌺 Fantasy</a>
+      <a href='#romance' className='btn-menu2'> 💕 Romance</a>
+      <a href='#mystery' className='btn-menu2'>⭐️ Mystery</a>
+      <a href='#adventure' className='btn-menu2'> 🎥 Adventure</a>
+      <a href='#feminism' className='btn-menu2'> 👑Feminism</a>
+      <a href='#inspirational' className='btn-menu2'> ✨ Inspirational</a>
+      <a href='#horror' className='btn-menu2'>🔪 Horror</a>
+      <a href='#thriller' className='btn-menu2'>☢️ Triller</a>
+      <a href='#humor' className='btn-menu2'>🤣 Humor</a>
+    </List>
+  
+    <hr size="30" />
+    <img src={img2} style={{width:'150px',marginLeft:'20px'}}></img>
+    </div>
+    
+    
+    
+   
+    
+      
+  </div>)}
 
-  const container = window !== undefined ? () => window().document.body : undefined;
+export default class SideNav extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user:null,
+        
+        errorMessage: ''
+    }}
+ componentDidMount(){
+  const { window } = this.props;
+  
 
+this.getConnectedUserData()
+ }
+ getConnectedUserData(){
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  myHeaders.append("Authorization", localStorage.getItem('token'));
+  
+
+  var requestOptions = {
+    method: 'GET',
+    headers: myHeaders,
+    redirect: 'follow'
+  };
+  
+  fetch("http://localhost:3000/connected", requestOptions)
+    .then(response => response.json())
+    .then(result => this.setState({user:result._id}))
+    .catch(error => console.log('error', error));
+}
+  
+  render() {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -108,7 +123,7 @@ function ResponsiveDrawer(props) {
             color="inherit"
             aria-label="open drawer"
             edge="start"
-            onClick={handleDrawerToggle}
+            
             sx={{ mr: 2, display: { sm: 'none' } }}
           >
             <MenuIcon />
@@ -120,11 +135,12 @@ function ResponsiveDrawer(props) {
            <i><BiBookHeart/></i> Readify
          
           </Typography>
-        <a  href='/signup'className='btn-nav1' style={{right:'130px',top:'0',position:'absolute'}} >Sign up</a>
-       
-        <a  href='/login'className='btn-nav2'style={{right:'30px',top:'0',position:'absolute'}} >Login</a>
-        </div>
-      
+        
+</div>
+        <div >
+<a href={"/profile/"+this.state.user}><Avatar src={img1} sx={{marginLeft:125,marginRight:2 }} /></a>
+
+</div>
         </Toolbar>
           
       </AppBar>
@@ -136,10 +152,9 @@ function ResponsiveDrawer(props) {
         
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Drawer
-          container={container}
+          
           variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
+          
           ModalProps={{
             keepMounted: true, // Better open performance on mobile.
           }}
@@ -148,7 +163,7 @@ function ResponsiveDrawer(props) {
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
           }}
         >
-          {drawer}
+          <Drawer1/>
         </Drawer>
         <Drawer
           variant="permanent"
@@ -158,7 +173,7 @@ function ResponsiveDrawer(props) {
           }}
           open
         >
-          {drawer}
+          <Drawer1/>
         </Drawer>
       </Box>
       <Box
@@ -174,12 +189,6 @@ function ResponsiveDrawer(props) {
   );
 }
 
-ResponsiveDrawer.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window: PropTypes.func,
+
 };
 
-export default ResponsiveDrawer;

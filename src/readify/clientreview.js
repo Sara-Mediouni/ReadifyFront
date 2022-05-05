@@ -10,6 +10,7 @@ import pic4 from '../image/pic-3.png';
 import pic5 from '../image/pic-2.png';
 import pic6 from '../image/pic-1.png';
 import {FaStar,FaStarHalfAlt} from 'react-icons/fa';
+import '../App.css';
 function ClientReview(){
     return (
 
@@ -24,7 +25,7 @@ function ClientReview(){
     rewind:true,
     pagination:false,
     width : 2000,
-    height:310,
+    height:350,
     perPage: 3,
     padding: { left: 0 },
     

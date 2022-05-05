@@ -1,30 +1,26 @@
-
-
-
-
-
 import React from "react";
 import './choices.css';
-
-function Choices(){
+import bootstrap from 'bootstrap';
+function choices(){
     return (
-
-
+<div>
+        
 
 
 <div id="app-container">  
 
-<div className="component-wrapper" id="component-onboardinggenres-onboarding-genres-%2fstart%2fgenres">
-<div className="full-screen background-1 onboarding-bg"></div>
-<div className="onboardingModal modal fade in genres">
-<div className="modal-content"><div className="onboarding-genres"><div className="logo-wrapper">
+<div className="component-wrapper">
+
+
+<div className="modal-content"><div className="logo-wrapper">
 <img src="./Wattpad - Where stories live_files/wp-logo-orange.png" alt="wattpad logo" className="wp-logo" width="174"/>
 </div>
-<div className="greeting">Hi, ranm7777</div><div className="prompt">Choose <strong>up to three</strong> genres that you enjoy reading. This will help us better recommend stories you'll love.</div><div className="genres"><div className="genre-tile" tabindex="0" role="button"><div className="genre-info" style={{backgroundImage: "url(https://static.wattpad.com/image/edschoice-illo@3x.png)"}}>
+<div className="greeting">Hi, user</div><div className="prompt">Choose <strong>up to three</strong> genres that you enjoy reading. This will help us better recommend stories you'll love.</div><div className="genres"><div className="genre-tile" tabindex="0" role="button"><div className="genre-info" style={{backgroundImage: "url(https://static.wattpad.com/image/edschoice-illo@3x.png)"}}>
 <div className="genre-name">Editor's Picks</div></div><div className="selected-wrapper">
 <div className="overlay hidden"></div><div className="selected-icon hidden">
 <span className="fa fa-check fa-wp-neutral-5" aria-hidden="true" style={{fontSize: "14px"}}></span>
-</div></div></div><div className="genre-tile" tabindex="0" role="button">
+</div></div></div>
+<div className="genre-tile" tabindex="0" role="button" style={{height:'30px'}}>
 <div className="genre-info" style={{backgroundImage: "url(https://static.wattpad.com/image/adventure-illo@3x.png)"}}>
 <div className="genre-name">Adventure</div></div><div className="selected-wrapper">
 <div className="overlay hidden"></div><div className="selected-icon hidden">
@@ -106,11 +102,10 @@ function Choices(){
                             </div>
                             <div className="selected-icon hidden"><span className="fa fa-check fa-wp-neutral-5" aria-hidden="true" style={{fontSize: "14px"}}></span></div></div></div><div className="genre-tile" tabindex="0" role="button"><div className="genre-info" style={{backgroundImage: "url(https://static.wattpad.com/image/thriller-illo@3x.png)"}}>
                                 <div className="genre-name">Thriller</div></div><div className="selected-wrapper"><div className="overlay hidden"></div><div className="selected-icon hidden"><span className="fa fa-check fa-wp-neutral-5" aria-hidden="true" style={{fontSize: "14px"}}></span></div></div></div><div className="genre-tile" tabindex="0" role="button"><div className="genre-info" style={{backgroundImage: "url(https://static.wattpad.com/image/werewolf-illo@3x.png)"}}><div className="genre-name">Werewolf</div></div><div className="selected-wrapper"><div className="overlay hidden"></div><div className="selected-icon hidden"><span className="fa fa-check fa-wp-neutral-5" aria-hidden="true" style={{fontSize: "14px"}}></span></div></div></div><ul className="overflow-padding" aria-hidden="true"></ul></div></div><div className="finish-button-wrapper"><button className="finish-button btn-primary disabled">Finish</button></div>
-<div className="transparency">
+
     </div>
-    </div>
-</div>
+
 </div>
 </div>
 );}
-export default Choices;
+export default choices;

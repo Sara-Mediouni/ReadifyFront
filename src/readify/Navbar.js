@@ -62,7 +62,7 @@ BootstrapDialogTitle.propTypes = {
 
 
 
-function Navbar({login,signup}){
+function Navbar(props){
   
 const[fix,setfix]=useState(false)
 function setfixed(){
@@ -74,20 +74,7 @@ if(window.scrollY > 80){
 window.addEventListener("scroll",setfixed)
 
 
-  const [open1, setOpen1] = React.useState(false);
-  const [open2, setOpen2] = React.useState(false);
-  const handleClickOpen1 = () => {
-    setOpen1(true);
-  };
-  const handleClickOpen2 = () => {
-    setOpen2(true);
-  };
-  const handleClose1 = () => {
-    setOpen1(false);
-  };
-  const handleClose2 = () => {
-    setOpen2(false);
-  };
+  
 
 return(
   <nav>
@@ -95,7 +82,7 @@ return(
 
 <div class="header-1">
 
-    <a href="#" className="logo">  <i><FaBook style={{color: '#27ae60'}}/> </i> Readify </a>
+    <a href="/" className="logo"> <i><FaBook style={{color: '#27ae60'}}/> </i> Readify </a>
 
     <form action="" className="search-form">
         <input type="search" name="" placeholder="search here..." id="search-box"/>
@@ -105,44 +92,19 @@ return(
     <div className="icons">
         
         
-        <a  className='btn-nav1' onClick={handleClickOpen1}>Sign up</a>
-        <BootstrapDialog 
-        onClose={handleClose1}
-        
-        open={open1}
-        
-      >
-      <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose1}>
-         <h3 style={{fontSize: '2.5rem', textTransform: 'uppercase',textAlign:'center' }}>Sign up</h3>
-        </BootstrapDialogTitle>
-        <DialogContent dividers>
-          {signup}
-        </DialogContent>
-      </BootstrapDialog>
-        <a  className='btn-nav2' onClick={handleClickOpen2}>Login</a>
+        <a  className='btn-nav1' href='/signup'>Sign up</a>
+      
+        <a  className='btn-nav2' href='/login'>Login</a>
         </div>
-        <BootstrapDialog
-        onClose={handleClose2}
-        
-        open={open2}
-      >
-      <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose2}>
-         <h3 style={{fontSize: '2.5rem', textTransform: 'uppercase',textAlign:'center' }}>Login</h3>
-        </BootstrapDialogTitle>
-        <DialogContent dividers>
-          {login}
-        </DialogContent>
-      </BootstrapDialog>
-
+      
 </div>
 
 <div className={fix ? 'navbar-fixed':'header-2'}>
     <nav className="navbar">
-        <a href="#home">home</a>
+        <a href="/">home</a>
         <a href="#featured">featured</a>
         <a href="#arrivals">arrivals</a>
-        <a href="#reviews">reviews</a>
-        <a href="#blogs">blogs</a>
+        
     </nav>
 </div>
 

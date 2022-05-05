@@ -1,5 +1,5 @@
 
-import React from 'react';
+
 import {AiOutlineCloseCircle} from 'react-icons/ai';
 import PropTypes from 'prop-types';
 import Button from '@mui/material/Button';
@@ -13,97 +13,93 @@ import CloseIcon from '@mui/icons-material/Close';
 import Typography from '@mui/material/Typography';
 import Signup from './Signup';
 import { color } from '@mui/system';
+import React, { Component } from 'react'
+const AuthenticationContext = React.createContext();
+const { Provider, Consumer } = AuthenticationContext;
+export default class Login extends Component {
+ 
+  constructor(props) {
+    super(props);
+    this.state = {
+      email:"",
+      password:"",
+      errorMessage:''
+    }
+}
+connect()
+{
+    var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
 
-const BootstrapDialog = styled(Dialog)(({ theme }) => ({
-  '& .MuiDialogContent-root': {
-    padding: theme.spacing(0),
-    
-  },
-  '& .MuiDialogActions-root': {
-    padding: theme.spacing(0),
-  },
-  
-}));
+var raw = JSON.stringify({
+"email": this.state.email,
+"password": this.state.password
+});
 
-const BootstrapDialogTitle = (props) => {
-  const { children, onClose, ...other } = props;
-
-  return (
-    <DialogTitle >
-      {children}
-      {onClose ? (
-        <IconButton
-          aria-label="close"
-          onClick={onClose}
-          sx={{
-            position: 'absolute',
-            right: 8,
-            top: 8,
-            color: (theme) => theme.palette.grey[200],
-          }}
-        >
-          <CloseIcon />
-        </IconButton>
-      ) : null}
-    </DialogTitle>
-  );
+var requestOptions = {
+method: 'POST',
+headers: myHeaders,
+body: raw,
+redirect: 'follow'
 };
 
-BootstrapDialogTitle.propTypes = {
-  children: PropTypes.node,
-  onClose: PropTypes.func.isRequired,
-};
+fetch("http://localhost:3000/login", requestOptions)
+.then(response => response.json())
+.then(result =>{ if (result.success === false) {
+console.log("oups");
+this.setState({ errorMessage:result.message})
+} else {
+// connected
+localStorage.setItem('token',result.token)
+     this.props.history.push('/home');
+}
+})
+.catch(error => console.log('error', error));}
 
-function Login({signup}){
-    const [open1, setOpen1] = React.useState(false);
-    
-    const handleClickOpen1 = () => {
-      setOpen1(true);
-    };
-   
-    const handleClose1 = () => {
-      setOpen1(false);
-    };
-      return (
+  render() {
+    return (
+      
+
+
+
 
 
 <div className="login-form-container">
 
 
 
-    <form action="">
+    <form onSubmit={(e) => {
+                                                    e.preventDefault();
+                                                    this.connect();
+
+
+                                                }} >
         
         <span>Email Address</span>
-        <input type="email" name="" className="box" placeholder="enter your email" id=""/>
+        <input type="email" name="" className="box" placeholder="enter your email" id="" onChange={(e) => { this.setState({ email: e.target.value }) }}/>
         <span>password</span>
-        <input type="password" name="" className="box" placeholder="enter your password" id=""/>
-        <div className="checkbox">
-            <input type="checkbox" name="" id="remember-me"/>
-            <label for="remember-me"> remember me</label>
+        <input type="password" name="" className="box" placeholder="enter your password" id="" onChange={(e) => { this.setState({ password: e.target.value }) }}/>
+        <div className="checkbox" style={{alignItems:'left',position:'relative'}}>
+            <input type="checkbox" name="" id="remember-me"style={{position:'relative',left:'2rem',bottom:'2px'}}/>
+            <label for="remember-me" style={{position:'relative'}}> remember me</label>
         </div>
-        <input type="submit" value="Login" className="btn"style={{backgroundColor:'#219150'}}/>
+        <input type="submit" value="Login" className="btn"style={{backgroundColor:'#219150'}}/> 
+                                                   
         <p>forget password ? <a href="#">click here</a></p>
-        <p>don't have an account ? <a  onClick={handleClickOpen1}>Sign up</a></p>
-        <BootstrapDialog 
-        
-       
-        open={open1}
-        
-      >
-      <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose1}>
-         <h3 style={{fontSize: '2.5rem', textTransform: 'uppercase',textAlign:'center' }}>Sign up</h3>
-        </BootstrapDialogTitle>
-        <DialogContent dividers>
-            
-          {signup}
-        </DialogContent>
-      </BootstrapDialog>
+       {
+                                                        this.state.errorMessage !== '' ?
+                                                            <div className="alert alert-danger">
+                                                                {this.state.errorMessage}
+                                                            </div>
+                                                            :
+                                                            <div ></div> }
     </form>
 
 </div>
 
 
 
-);
+
+    )
+  }
 }
-export default Login;

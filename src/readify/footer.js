@@ -42,7 +42,7 @@ return(
             <h3>contact info</h3>
             <a href="#"><i><AiFillPhone style={{color: '#27ae60'}}/></i>  +216-20-581-287 </a>
             
-            <a href="#"><i><FaEnvelope style={{color: '#27ae60'}}/></i> sarahjedlaoui999@gmail.com </a>
+            <a href="#"><i><FaEnvelope style={{color: '#27ae60'}}/></i> mediounisarra99@gmail.com </a>
             <img src={map}className="map" alt=""/>
         </div>
         
@@ -50,7 +50,7 @@ return(
 
     
 
-    <div className="credit"> created by <span></span> | all rights reserved! </div>
+    <div className="credit"> created by <span>Sara & Sarah</span> | all rights reserved! </div>
 
 </section>);
 }
